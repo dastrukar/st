@@ -7,7 +7,7 @@ include config.mk
 SRC = st.c x.c boxdraw.c hb.c
 OBJ = $(SRC:.c=.o)
 
-all: options st
+all: options st st-dropdown
 
 options:
 	@echo st build options:
@@ -31,6 +31,9 @@ $(OBJ): config.h config.mk
 st: $(OBJ)
 	$(CC) -o $@ $(OBJ) $(STLDFLAGS)
 
+st-dropdown: $(OBJ)
+	$(CC) -o $@ $(OBJ) $(STLDFLAGS) -D X_CLASS="St-Dropdown" -D X_NAME="st-dropdown"
+
 clean:
 	rm -f st $(OBJ) st-$(VERSION).tar.gz *.o *.orig *.rej
 
@@ -45,6 +48,7 @@ dist: clean
 install: st
 	mkdir -p $(DESTDIR)$(PREFIX)/bin
 	cp -f st $(DESTDIR)$(PREFIX)/bin
+	cp -f st-dropdown $(DESTDIR)$(PREFIX)/bin
 	cp -f st-copyout $(DESTDIR)$(PREFIX)/bin
 	cp -f st-urlhandler $(DESTDIR)$(PREFIX)/bin
 	chmod 755 $(DESTDIR)$(PREFIX)/bin/st
