@@ -6,6 +6,7 @@ include config.mk
 
 SRC = st.c x.c boxdraw.c hb.c
 OBJ = $(SRC:.c=.o)
+D_OBJ = st.o x-dropdown.o boxdraw.o hb.o
 
 all: options st st-dropdown
 
@@ -31,9 +32,11 @@ $(OBJ): config.h config.mk
 st: $(OBJ)
 	$(CC) -o $@ $(OBJ) $(STLDFLAGS)
 
-st-dropdown: $(OBJ)
-	$(CC) -o $@ $(OBJ) $(STLDFLAGS) -D X_CLASS="St-Dropdown" -D X_NAME="st-dropdown"
+x-dropdown.o:
+	$(CC) $(STCFLAGS) -c -o x-dropdown.o x.c -D 'X_CLASS="St-Dropdown"' -D 'X_NAME="st-dropdown"'
 
+st-dropdown: $(D_OBJ)
+	$(CC) -o $@ $(D_OBJ) $(STLDFLAGS)
 clean:
 	rm -f st $(OBJ) st-$(VERSION).tar.gz *.o *.orig *.rej
 
