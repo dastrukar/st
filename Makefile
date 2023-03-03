@@ -32,7 +32,7 @@ $(OBJ): config.h config.mk
 st: $(OBJ)
 	$(CC) -o $@ $(OBJ) $(STLDFLAGS)
 
-x-dropdown.o:
+x-dropdown.o: arg.h config.h st.h win.h hb.h
 	$(CC) $(STCFLAGS) -c -o x-dropdown.o x.c -D 'X_CLASS="St-Dropdown"' -D 'X_NAME="st-dropdown"'
 
 st-dropdown: $(D_OBJ)
