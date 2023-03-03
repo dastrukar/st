@@ -1,5 +1,6 @@
 config.h
 st
+st-dropdown
 *.o
 *.rej
 *.orig
