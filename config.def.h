@@ -1,12 +1,21 @@
 /* See LICENSE file for copyright and license details. */
 
+#ifndef X_NAME
+#define X_NAME "st"
+#endif
+
+#ifndef X_CLASS
+#define X_CLASS "St"
+#endif
+
 /*
  * appearance
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "JetBrainsMono Nerd Font :pixelsize=15:antialias=true:autohint=true";
-static char *font2[] = { "JetBrainsMono Nerd Font :pixelsize=15:antialias=true:autohint=true" };
+//static char *font = "Fira Code Nerd Font:pixelsize=12:antialias=true:autohint=true";
+static char *font = "iosevka:pixelsize=16:antialias=true:autohint=true";
+static char *font2[] = { "blobmoji :pixelsize=16:antialias=true:autohint=true" };
 static int borderpx = 0;
 
 /*
@@ -114,32 +123,37 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* bg opacity */
-float alpha = 1.0;
+float alpha = 0.9;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-  "#282828", /* hard contrast: #1d2021 / soft contrast: #32302f */
-  "#cc241d",
-  "#98971a",
-  "#d79921",
-  "#458588",
-  "#b16286",
-  "#689d6a",
-  "#a89984",
-  "#928374",
-  "#fb4934",
-  "#b8bb26",
-  "#fabd2f",
-  "#83a598",
-  "#d3869b",
-  "#8ec07c",
-  "#ebdbb2",
+  // Normal colours
+  "#2e3440", /* hard contrast: #1d2021 / soft contrast: #32302f */
+  "#bf616a", // red
+  "#a3be8c", // green
+  "#ebcb8b", // yellow
+  "#5e81ac", // blue
+  "#b48ead", // purple
+  "#81a1c1", // cyan
+  "#d8dee9", // grey
+
+  // Bright colours
+  "#e5e9f0", // light grey
+  "#bf616a", // red
+  "#a3be8c", // green
+  "#ebcb8b", // yellow
+  "#88c0d0", // blue
+  "#b48ead", // purple
+  "#8fbcbb", // cyan
+  "#eceff4", // white
+
   [255] = 0,
+
   /* more colors can be added after 255 to use with DefaultXX */
-  "#add8e6", /* 256 -> cursor */
-  "#555555", /* 257 -> rev cursor*/
-  "#282828", /* 258 -> bg */
-  "#ffffff", /* 259 -> fg */
+  "#eceff4", /* 256 -> cursor */
+  "#4c566a", /* 257 -> rev cursor*/
+  "#2e3440", /* 258 -> bg */
+  "#eceff4", /* 259 -> fg */
 };
 
 
@@ -153,19 +167,13 @@ unsigned int defaultcs = 256;
 unsigned int defaultrcs = 257;
 
 /*
- * https://invisible-island.net/xterm/ctlseqs/ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-SP-q.1D81
- * Default style of cursor
- * 0: Blinking block
- * 1: Blinking block (default)
- * 2: Steady block ("█")
- * 3: Blinking underline
- * 4: Steady underline ("_")
- * 5: Blinking bar
- * 6: Steady bar ("|")
- * 7: Blinking st cursor
- * 8: Steady st cursor
+ * Default shape of cursor
+ * 2: Block ("█")
+ * 4: Underline ("_")
+ * 6: Bar ("|")
+ * 7: Snowman ("☃")
  */
-static unsigned int cursorshape = 1;
+static unsigned int cursorshape = 2;
 
 /*
  * Default columns and rows numbers
@@ -269,7 +277,7 @@ static Shortcut shortcuts[] = {
   { ControlMask | ShiftMask,               XK_V,           clippaste,      {.i =  0} },
   { XK_ANY_MOD,		Button2,	selpaste,	{.i =  0} },
   { MODKEY,               XK_Num_Lock,    numlock,        {.i =  0} },
-  { ControlMask | ShiftMask,               XK_U,           iso14755,       {.i =  0} },
+  { MODKEY,               XK_Control_L,   iso14755,       {.i =  0} },
   { ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
   { ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
   { MODKEY,               XK_Page_Up,     kscrollup,      {.i = -1} },
