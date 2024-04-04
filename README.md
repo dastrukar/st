@@ -1,5 +1,8 @@
 # St (Suckless Terminal)
 
+> (original modified st by siduck)[https://github.com/siduck/st]
+> the default config and code have been slightly modified to suit my needs, so use this at your own risk
+
 ## Xresources live-reload demo
 
 <img src="https://github.com/siduck/dotfiles/blob/all/rice%20flex/live-reloadXresources.gif"> <br><br>
