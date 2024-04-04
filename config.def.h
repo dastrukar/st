@@ -14,7 +14,8 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 //static char *font = "Fira Code Nerd Font:pixelsize=12:antialias=true:autohint=true";
-static char *font = "iosevka:pixelsize=16:antialias=true:autohint=true";
+// static char *font = "iosevka:pixelsize=16:antialias=true:autohint=true";
+static char *font = "Terminus Nerd Font Propo:pixelsize=16:antialias=false:autohint=true";
 static char *font2[] = { "blobmoji :pixelsize=16:antialias=true:autohint=true" };
 static int borderpx = 0;
 
@@ -288,9 +289,9 @@ static Shortcut shortcuts[] = {
   { MODKEY,               XK_Down,        kscrolldown,    {.i =  1} },
   { MODKEY,               XK_u,           kscrollup,      {.i = -1} },
   { MODKEY,               XK_d,           kscrolldown,    {.i = -1} },
-  { MODKEY,		XK_s,		changealpha,	{.f = -0.05} },
-  { MODKEY,		XK_a,		changealpha,	{.f = +0.05} },
-  { MODKEY,		XK_m,		changealpha,	{.f = +2.00} },
+  //{ MODKEY,		XK_s,		changealpha,	{.f = -0.05} },
+  //{ MODKEY,		XK_a,		changealpha,	{.f = +0.05} },
+  //{ MODKEY,		XK_m,		changealpha,	{.f = +2.00} },
   { TERMMOD,              XK_Up,          zoom,           {.f = +1} },
   { TERMMOD,              XK_Down,        zoom,           {.f = -1} },
   { TERMMOD,              XK_K,           zoom,           {.f = +1} },
