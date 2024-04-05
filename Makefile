@@ -38,7 +38,7 @@ x-dropdown.o: arg.h config.h st.h win.h hb.h
 st-dropdown: $(D_OBJ)
 	$(CC) -o $@ $(D_OBJ) $(STLDFLAGS)
 clean:
-	rm -f st $(OBJ) st-$(VERSION).tar.gz *.o *.orig *.rej
+	rm -f st st-dropdown $(OBJ) st-$(VERSION).tar.gz *.o *.orig *.rej
 
 dist: clean
 	mkdir -p st-$(VERSION)
