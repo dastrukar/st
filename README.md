@@ -11,15 +11,23 @@
 
 ```
 # Void
-xbps-install libXft-devel libX11-devel harfbuzz-devel libXext-devel libXrender-devel libXinerama-devel
+xbps-install libXft-devel libX11-devel harfbuzz-devel libXext-devel libXrender-devel libXinerama-devel gd-devel
 
 # Debian (and ubuntu probably)
-apt install build-essential libxft-dev libharfbuzz-dev
+apt install build-essential libxft-dev libharfbuzz-dev libgd-dev
 
 # Nix
 nix develop github:siduck/st
 
-(most of these are already installed on Arch based distros)
+# Arch
+pacman -S gd
+
+# Fedora (or Red-Hat based)
+dnf install gd-devel libXft-devel
+
+# SUSE (or openSUSE)
+zypper in -t pattern devel_basis
+zypper in gd-devel libXft-devel harfbuzz-devel
 
 # Install font-symbola and libXft-bgra
 ```
@@ -35,6 +43,7 @@ To do so, simply run (requires [Nix](https://nixos.org/download.html))
 ```
 git clone https://github.com/siduck/st.git
 cd st
+(change the compiler if you cant use c99 to compile: sed -i 's/^#\ CC\ =\ c99/CC=gcc/' config.mk)
 sudo make install
 xrdb merge pathToXresourcesFile
 ```
@@ -83,7 +92,7 @@ alias rel="xrdb merge pathToXresourcesFile && kill -USR1 $(pidof st)"
 <img src="https://raw.githubusercontent.com/siduck/dotfiles/all/rice%20flex/speedTest.png"> <br><br>
 <img src="https://raw.githubusercontent.com/siduck/dotfiles/all/rice%20flex/speedTest1.png"> <br><br>
 
-( note : This benchmark was done on my low end machine which has a pentium cpu so the speed results might vary )
+( note : This benchmark was done on my low-end machine which has a pentium cpu so the speed results might vary )
 
 ## Default Keybindings<br>
 
@@ -114,7 +123,7 @@ you can change all of these in config.h
 ## Themes/Fonts used
 
 - ls-icons: https://github.com/Yash-Handa/logo-ls <br>
-- Xresources: onedark ( just xrdb merge xresourcesfile , do this everytime you make any change to xresources file ) from this repo itself.<br>
+- Xresources: onedark (just `xrdb merge xresourcesfile`, do this everytime you make any change to xresources file) from this repo itself.<br>
 - Font: JetbrainsMono Nerd Font + material design icon fonts
 
 ## Screenshots:
