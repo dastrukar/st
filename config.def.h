@@ -15,7 +15,7 @@
  */
 //static char *font = "Fira Code Nerd Font:pixelsize=12:antialias=true:autohint=true";
 // static char *font = "iosevka:pixelsize=16:antialias=true:autohint=true";
-static char *font = "Terminus Nerd Font Propo:pixelsize=16:antialias=false:autohint=true";
+static char *font = "Terminess Nerd Font Propo:pixelsize=16:antialias=false:autohint=true";
 static char *font2[] = { "blobmoji :pixelsize=16:antialias=true:autohint=true" };
 static int borderpx = 0;
 
@@ -137,6 +137,7 @@ static const char *colorname[] = {
   "#b48ead", // purple
   "#81a1c1", // cyan
   "#d8dee9", // grey
+  // "#616e88", // grey
 
   // Bright colours
   "#e5e9f0", // light grey
@@ -285,8 +286,8 @@ static Shortcut shortcuts[] = {
   { MODKEY,               XK_Page_Down,   kscrolldown,    {.i = -1} },
   { MODKEY,               XK_k,           kscrollup,      {.i =  1} },
   { MODKEY,               XK_j,           kscrolldown,    {.i =  1} },
-  { MODKEY,               XK_Up,          kscrollup,      {.i =  1} },
-  { MODKEY,               XK_Down,        kscrolldown,    {.i =  1} },
+  // { MODKEY,               XK_Up,          kscrollup,      {.i =  1} },
+  // { MODKEY,               XK_Down,        kscrolldown,    {.i =  1} },
   { MODKEY,               XK_u,           kscrollup,      {.i = -1} },
   { MODKEY,               XK_d,           kscrolldown,    {.i = -1} },
   //{ MODKEY,		XK_s,		changealpha,	{.f = -0.05} },
@@ -391,7 +392,8 @@ static Key key[] = {
   { XK_KP_Delete,     ControlMask,    "\033[3;5~",    +1,    0},
   { XK_KP_Delete,     ShiftMask,      "\033[2K",      -1,    0},
   { XK_KP_Delete,     ShiftMask,      "\033[3;2~",    +1,    0},
-  { XK_KP_Delete,     XK_ANY_MOD,     "\033[3~",      -1,    0},
+  { XK_KP_Delete,     XK_ANY_MOD,     "\033[P",       -1,    0},
+  { XK_KP_Delete,     XK_ANY_MOD,     "\033[3~",      +1,    0},
   { XK_KP_Multiply,   XK_ANY_MOD,     "\033Oj",       +2,    0},
   { XK_KP_Add,        XK_ANY_MOD,     "\033Ok",       +2,    0},
   { XK_KP_Enter,      XK_ANY_MOD,     "\033OM",       +2,    0},
@@ -458,7 +460,8 @@ static Key key[] = {
   { XK_Delete,        ControlMask,    "\033[3;5~",    +1,    0},
   { XK_Delete,        ShiftMask,      "\033[2K",      -1,    0},
   { XK_Delete,        ShiftMask,      "\033[3;2~",    +1,    0},
-  { XK_Delete,        XK_ANY_MOD,     "\033[3~",      -1,    0},
+  { XK_Delete,        XK_ANY_MOD,     "\033[P",       -1,    0},
+  { XK_Delete,        XK_ANY_MOD,     "\033[3~",      +1,    0},
   { XK_BackSpace,     XK_NO_MOD,      "\177",          0,    0},
   { XK_BackSpace,     Mod1Mask,       "\033\177",      0,    0},
   { XK_Home,          ShiftMask,      "\033[2J",       0,   -1},
